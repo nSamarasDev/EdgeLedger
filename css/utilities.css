@@ -32,12 +32,12 @@
   color: #fff;
 }
 
-.btn-dark .bg-dark {
+.btn-dark, .bg-dark {
   background: #333;
   color: #fff;
 }
 
-.btn-light .bg-light {
+.btn-light, .bg-light {
   background: #f4f4f4;
   color: #333
 }
