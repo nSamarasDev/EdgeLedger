@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=10">
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
@@ -12,11 +12,12 @@
     />
     <link rel="stylesheet" href="css/utilities.css" >
     <link rel="stylesheet" href="css/style.css" >
+    <link rel="stylesheet" href="css/lightbox.min.css" >
     <title>Welcome to EdgeLedger</title>
 </head>
 <body id="home">
     <header class="hero">
-        <div id="navbar" class="navbar">
+        <div id="navbar" class="navbar top">
             <h1 class="logo">
                 <span class="text-primary"><i class="fas fa-book-open"></i> Edge</span>Ledger
             </h1>
@@ -104,20 +105,76 @@
         </header>
         <div class="row">
             <div class="column">
-                <img src="images/cases/cases1.jpg">
-                <img src="images/cases/cases2.jpg">
+              <a
+              href="images/cases/cases1.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+              dolore!"
+            >
+              <img src="images/cases/cases1.jpg" alt="" />
+            </a>
+            <a
+            href="images/cases/cases2.jpg"
+            data-lightbox="cases"
+            data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+            dolore!"
+          >
+            <img src="images/cases/cases2.jpg" alt="" />
+          </a>
             </div>
             <div class="column">
-                <img src="images/cases/cases3.jpg">
-                <img src="images/cases/cases4.jpg">
+              <a
+              href="images/cases/cases3.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+              dolore!"
+            >
+              <img src="images/cases/cases3.jpg" alt="" />
+            </a>
+            <a
+            href="images/cases/cases4.jpg"
+            data-lightbox="cases"
+            data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+            dolore!"
+          >
+            <img src="images/cases/cases4.jpg" alt="" />
+          </a>
             </div>
             <div class="column">
-                <img src="images/cases/cases5.jpg">
-                <img src="images/cases/cases6.jpg">
+              <a
+              href="images/cases/cases5.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+              dolore!"
+            >
+              <img src="images/cases/cases5.jpg" alt="" />
+            </a>
+            <a
+            href="images/cases/cases6.jpg"
+            data-lightbox="cases"
+            data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+            dolore!"
+          >
+            <img src="images/cases/cases6.jpg" alt="" />
+          </a>
             </div>
             <div class="column">
-                <img src="images/cases/cases7.jpg">
-                <img src="images/cases/cases8.jpg">
+              <a
+              href="images/cases/cases7.jpg"
+              data-lightbox="cases"
+              data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+              dolore!"
+            >
+              <img src="images/cases/cases7.jpg" alt="" />
+            </a>
+            <a
+            href="images/cases/cases8.jpg"
+            data-lightbox="cases"
+            data-title="Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat,
+            dolore!"
+          >
+            <img src="images/cases/cases8.jpg" alt="" />
+          </a>
             </div>
         </div>
       </section>
@@ -231,5 +288,46 @@
         </div>
         <p>Copyright &copy; 2020 - EdgeLedger</p>
       </footer>
+
+      <script src="https://code.jquery.com/jquery-3.6.3.min.js" integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>
+
+      <script src="js/lightbox.min.js"></script>
+
+      <script>
+        const navbar = document.getElementById('navbar')
+        let scrolled = false
+
+        window.onscroll = function() {
+          if(window.pageYOffset > 100) {
+            navbar.classList.remove('top')
+            if (!scrolled) {
+              navbar.style.transform = 'translateY(-70px)'
+            }
+            setTimeout(function() {
+              navbar.style.transform = 'translateY(0)'
+              scrolled = true;
+            }, 200)
+          } else {
+            navbar.classList.add('top')
+            scrolled = false;
+          }
+        }
+
+        // Smooth Scrolling
+        $('#navbar a, .btn').on('click', function (e) {
+          if (this.hash !== '') {
+            e.preventDefault();
+
+            const hash = this.hash;
+
+            $('html, body').animate(
+              {
+                scrollTop: $(hash).offset().top - 100,
+              },
+              800
+            );
+          }
+        })
+      </script>
 </body>
 </html>
